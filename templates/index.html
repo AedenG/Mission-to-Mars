@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <!-- <link rel="stylesheet" href="Mission.css"> -->
   </head>
   <body>
     <div class="container">
@@ -16,7 +17,7 @@
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-dark btn-lg" style= "background-color: black; color: white" href="/scrape" role="button">Scrape New Data</a></p>
       </div>
       <!-- Add section for Mars News -->
       <div class="row" id="mars-news">
@@ -45,6 +46,22 @@
           <div class="row" id="mars-facts">
             <h4>Mars Facts</h4>
             {{ mars.facts | safe }}
+          </div>
+        </div>
+        <div>
+          <!-- Mars Facts --> 
+          <div class="row" id="hem-img">
+              <h4 style="text-align:center; font-size: 2.5em">Mars Hemispheres</h4>
+                <div>
+                  {% for hemisphere in mars.new_hem_dict %}
+                  <div class="">
+                  <!-- <h3>{{hemisphere.title}}</h3> -->
+                  <h3 class="img-thumbnail col-md-6" style="text-align:center">
+                  <img src="{{hemisphere.img_url}}" class="img-responsive col-md-12" alt="">
+                  {{hemisphere.title}}</h3>
+                  {% endfor %}
+                  </div>
+                </div>
           </div>
         </div>
       </div>
